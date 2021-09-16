@@ -1,5 +1,4 @@
-from mandaw import *
-import sdl2
+from mandawsdl import *
 import sdl2.ext
 
 mandaw = Mandaw("Pong", 800, 600)
