@@ -1,6 +1,6 @@
 import sdl2
 import sdl2.ext
-from mandaw.input import Input
+from mandawsdl.input import Input
 
 class Mandaw:
     def __init__(self, title = "Mandaw", width = 800, height = 600, bg_color = sdl2.ext.Color(0, 0, 0)):
@@ -19,10 +19,11 @@ class Mandaw:
         self.window.bg_color = bg_color
 
         self.world = sdl2.ext.World()
-        self.world.width = width
-        self.world.height = height
+        self.world.width = self.width
+        self.world.height = self.height
 
         self.factory = sdl2.ext.SpriteFactory(sdl2.ext.SOFTWARE)
+        self.world.factory = sdl2.ext.SpriteFactory(sdl2.ext.SOFTWARE)
 
         self.sprite_renderer = SoftwareRenderer(self.window)
         self.world.add_system(self.sprite_renderer)
