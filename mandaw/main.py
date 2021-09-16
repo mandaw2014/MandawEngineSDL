@@ -1,8 +1,9 @@
 from mandawsdl.input import Input
+from mandawsdl.color import Color
 import sdl2, sdl2.ext, time
 
 class Mandaw:
-    def __init__(self, title = "Mandaw", width = 800, height = 600, bg_color = sdl2.ext.Color(0, 0, 0)):
+    def __init__(self, title = "Mandaw", width = 800, height = 600, bg_color = Color(0, 0, 0)):
         self.title = title
         self.width = width
         self.height = height
@@ -24,13 +25,26 @@ class Mandaw:
         self.factory = sdl2.ext.SpriteFactory(sdl2.ext.SOFTWARE)
         self.world.factory = sdl2.ext.SpriteFactory(sdl2.ext.SOFTWARE)
 
-        self.sprite_renderer = SoftwareRenderer(self.window)
+        self.sprite_renderer = SoftwareRenderer(self.window, self)
         self.world.add_system(self.sprite_renderer)
 
         self.input = Input()
 
         self.dt = 0
         self.last_time = int(time.time())
+
+        self.color = {
+            "black":(0, 0, 0), "white":(255, 255, 255),
+            "red":(255, 0, 0), "green":(0, 255, 0),
+            "blue":(0, 0, 255), "yellow":(255, 255, 0),
+            "cyan":(0, 255, 255), "magenta":(255, 0, 255),
+            "silver":(192, 192, 192), "gray":(128, 128, 128),
+            "maroon":(128, 0, 0), "olive":(128, 128, 0),
+            "darkgreen":(0, 128, 0), "purple":(128, 0, 128),
+            "teal":(0, 0, 128), "orange":(255, 165, 0),
+            "turquoise":(64, 224, 208), "sky":(135, 206, 250),
+            "pink":(255, 192, 203), "brown":(139, 69, 19)
+        }
         
     def run(self):
         events = sdl2.ext.get_events()
@@ -48,9 +62,10 @@ class Mandaw:
         self.last_time = int(time.time())
 
 class SoftwareRenderer(sdl2.ext.SoftwareSpriteRenderSystem):
-    def __init__(self, window):
+    def __init__(self, window, mandaw):
         super().__init__(window)
+        self.mandaw = mandaw
 
     def render(self, components):
-        sdl2.ext.fill(self.surface, sdl2.ext.Color(0, 0, 0))
+        sdl2.ext.fill(self.surface, self.mandaw.bg_color)
         super().render(components)
