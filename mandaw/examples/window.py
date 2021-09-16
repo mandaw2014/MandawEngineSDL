@@ -1,4 +1,4 @@
-from mandaw import *
+from mandawsdl import *
 
 mandaw = Mandaw("Mandaw", 800, 600)
 
