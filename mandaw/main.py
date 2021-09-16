@@ -31,12 +31,7 @@ class Mandaw:
 
         self.dt = 0
         self.last_time = int(time.time())
-
-        self.keys = {
-            "UP":sdl2.SDLK_UP, "DOWN":sdl2.SDLK_DOWN,
-            "LEFT":sdl2.SDLK_LEFT, "RIGHT":sdl2.SDLK_RIGHT
-        }
-
+        
     def run(self):
         events = sdl2.ext.get_events()
         for event in events:
