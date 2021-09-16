@@ -1,5 +1,5 @@
 from mandawsdl import *
-import sdl2.ext, sdl2, random
+import random
 
 mandaw = Mandaw("Pong", 800, 600)
 
@@ -20,19 +20,10 @@ class Paddle(GameObject):
         self.attribute.ball = None
 
     def player_movement(self):
-        for event in sdl2.ext.get_events():
-            if event.type == sdl2.SDL_QUIT:
-                quit()
-
-            if event.type == mandaw.input.KEYDOWN:
-                if event.key.keysym.sym == sdl2.SDLK_ESCAPE:
-                    quit()
-
-                if event.key.keysym.sym == sdl2.SDLK_UP:
-                    player.position.y -= 7
-
-                elif event.key.keysym.sym == sdl2.SDLK_DOWN:
-                    player.position.y += 7
+        if mandaw.input.pressed[mandaw.input.keys["UP"]]:
+            player.position.y -= 2
+        if mandaw.input.pressed[mandaw.input.keys["DOWN"]]:
+            player.position.y += 2
 
     def opponent_movement(self):
         if self.position.y < self.attribute.ball.position.y:
