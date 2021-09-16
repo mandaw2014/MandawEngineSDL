@@ -31,7 +31,7 @@ while True:
 # Creating A Square
 Here is what we have so far
 ```py
-from mandaw import *
+from mandawsdl import *
 
 mandaw = Mandaw(title = "Mandaw", width = 800, height = 600)
 
