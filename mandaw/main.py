@@ -1,6 +1,6 @@
 from mandawsdl.input import Input
 from mandawsdl.color import Color
-import sdl2, sdl2.ext, time
+import sdl2, sdl2.ext
 
 class Mandaw:
     def __init__(self, title = "Mandaw", width = 800, height = 600, bg_color = Color(0, 0, 0)):
@@ -30,8 +30,9 @@ class Mandaw:
 
         self.input = Input()
 
+        self.now = sdl2.SDL_GetPerformanceCounter()
+        self.last = 0
         self.dt = 0
-        self.last_time = int(time.time())
 
         self.color = {
             "black":(0, 0, 0), "white":(255, 255, 255),
@@ -55,11 +56,12 @@ class Mandaw:
                 if event.key.keysym.sym == sdl2.SDLK_ESCAPE:
                     quit()
 
-        self.world.process()
+        self.last = self.now
+        self.now = sdl2.SDL_GetPerformanceCounter()
 
-        self.dt = int(time.time()) - self.last_time
-        self.dt *= 60
-        self.last_time = int(time.time())
+        self.dt = ((self.now - self.last) * 1000 / sdl2.SDL_GetPerformanceFrequency())
+
+        self.world.process()
 
 class SoftwareRenderer(sdl2.ext.SoftwareSpriteRenderSystem):
     def __init__(self, window, mandaw):
