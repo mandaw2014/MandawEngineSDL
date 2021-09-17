@@ -25,8 +25,14 @@ class GameObject(sdl2.ext.Entity):
         return(bleft < right and bright > left and btop < bottom and bbottom > top)
 
     def center(self):
-        self.position.x = int(self.world.width / 2)
-        self.position.y = int(self.world.height / 2)
+        self.position.x = int(self.world.width / 2) - int(self.size.width / 2)
+        self.position.y = int(self.world.height / 2) - int(self.size.height / 2)
+
+    def center_x(self):
+        self.position.x = int(self.world.width / 2) - int(self.size.width / 2)
+
+    def center_y(self):
+        self.position.y = int(self.world.height / 2) - int(self.size.height / 2)
 
 class Position(object):
     def __init__(self, x, y):
