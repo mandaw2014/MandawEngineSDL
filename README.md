@@ -1,22 +1,24 @@
-# MandawEngineSDL
+# MandawEngine
 A 2D Python GameEngine Made With PySDL2
 
 Discord: https://discord.gg/MPPqj9PNt3
 
 # Installation
 To install:
-1. Download the zip
-2. Extract the zip
-3. On Windows: Double click the install.bat (If that doesn't work, follow the step below)
-4. On Mac and Linux: In Terminal, navigate to the folder where you extracted the zip and type
+Type in CMD or Terminal:
 ```py
-python3 setup.py install
+pip install mandaw
+```
+Or to download the latest version from github
+Type in CMD or Terminal:
+```py
+pip install https://github.com/mandaw2014/mandawenginesdl/archive/master.zip
 ```
 
 # Creating A Window
 First, import mandaw
 ```py
-from mandawsdl import *
+from mandaw import *
 ```
 Call Mandaw
 ```py
@@ -31,7 +33,7 @@ while True:
 # Creating A Square
 Here is what we have so far
 ```py
-from mandawsdl import *
+from mandaw import *
 
 mandaw = Mandaw(title = "Mandaw", width = 800, height = 600)
 
@@ -50,7 +52,7 @@ while True:
 ```
 Like this
 ```py
-from mandawsdl import *
+from mandaw import *
 
 mandaw = Mandaw(title = "Mandaw", width = 800, height = 600)
 
@@ -64,7 +66,7 @@ while True:
 # Classes in MandawEngineSDL
 Our starting template
 ```py
-from mandawsdl import *
+from mandaw import *
 
 mandaw = Mandaw("Classes!", 800, 600)
 
@@ -102,7 +104,7 @@ while True:
 ```
 Full Code:
 ```py
-from mandawsdl import *
+from mandaw import *
 
 mandaw = Mandaw("Classes!", 800, 600)
 
