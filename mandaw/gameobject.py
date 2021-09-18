@@ -10,11 +10,9 @@ class GameObject(sdl2.ext.Entity):
         self.size = Size(width, height)
 
         self.attribute = Attribute()
-        self.sprite = None
-
         self.attribute.color = color
 
-        self.draw()
+        self.sprite = self.world.factory.from_color(self.attribute.color, (0, 0))
     
     def draw(self):
         self.sprite = self.world.factory.from_color(self.attribute.color, (self.size.width, self.size.height))
