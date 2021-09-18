@@ -19,10 +19,18 @@ class GameObject(sdl2.ext.Entity):
         self.sprite.position = self.position.x, self.position.y
 
     def collide(self, rect):
-        left, top, right, bottom = self.sprite.area
-        bleft, btop, bright, bbottom = rect.sprite.area
+        if type(rect) != list:
+            left, top, right, bottom = self.sprite.area
+            bleft, btop, bright, bbottom = rect.sprite.area
 
-        return(bleft < right and bright > left and btop < bottom and bbottom > top)
+            return(bleft < right and bright > left and btop < bottom and bbottom > top)
+        
+        elif type(rect) == list:
+            for i in range(len(rect)):
+                left, top, right, bottom = self.sprite.area
+                bleft, btop, bright, bbottom = rect[i].sprite.area
+
+                return(bleft < right and bright > left and btop < bottom and bbottom > top)
 
     def center(self):
         self.position.x = int(self.world.width / 2) - int(self.size.width / 2)
