@@ -6,12 +6,12 @@ Discord: https://discord.gg/MPPqj9PNt3
 # Installation
 To install:
 Type in CMD or Terminal:
-```py
+```
 pip install mandaw
 ```
 Or to download the latest version from github
 Type in CMD or Terminal:
-```py
+```
 pip install https://github.com/mandaw2014/mandawenginesdl/archive/master.zip
 ```
 
