@@ -122,5 +122,6 @@ class Cube(GameObject):
 cube = Cube(mandaw.world)
 
 while True:
+    cube.draw()
     mandaw.run()
 ```
