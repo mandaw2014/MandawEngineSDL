@@ -7,7 +7,7 @@ setup(name='Mandaw',
       keywords="python 2d game development",
       author_email='mandawbuisness@gmail.com',
       url='https://github.com/mandaw2014/MandawEngine',
-      packages=['mandaw'],
-      package_dir={'mandaw': 'mandaw'},
+      packages=['mandawsdl'],
+      package_dir={'mandawsdl': 'mandawsdl'},
       install_requires=["pysdl2"]
       )
