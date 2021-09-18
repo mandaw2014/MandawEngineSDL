@@ -10,12 +10,14 @@ class GameObject(sdl2.ext.Entity):
         self.size = Size(width, height)
 
         self.attribute = Attribute()
+        self.sprite = None
 
-        self.color = color
+        self.attribute.color = color
 
-        self.sprite = self.world.factory.from_color(self.color, (self.size.width, self.size.height))
+        self.draw()
     
     def draw(self):
+        self.sprite = self.world.factory.from_color(self.attribute.color, (self.size.width, self.size.height))
         self.sprite.position = self.position.x, self.position.y
 
     def collide(self, rect):
