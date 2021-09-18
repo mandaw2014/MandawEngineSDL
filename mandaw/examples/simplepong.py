@@ -21,20 +21,25 @@ class Paddle(GameObject):
 
     def player_movement(self):
         if mandaw.input.pressed[mandaw.input.keys["UP"]]:
-            player.position.y -= 2
+            self.position.y -= 2
         if mandaw.input.pressed[mandaw.input.keys["DOWN"]]:
-            player.position.y += 2
+            self.position.y += 2
+
+        if self.position.y >= mandaw.height - 30:
+            self.position.y = mandaw.height - 30
+        if self.position.y <= -60:
+            self.position.y = -60
 
     def opponent_movement(self):
         if self.position.y < self.attribute.ball.position.y:
-            self.position.y += 3
+            self.position.y += 2
         if self.position.y > self.attribute.ball.position.y:
-            self.position.y -= 3
+            self.position.y -= 2
 
-        if self.position.y <= 10:
-            self.position.y = 10
-        if self.position.y >= mandaw.height - 10:
-            self.position.y = mandaw.height - 10
+        if self.position.y >= mandaw.height - 30:
+            self.position.y = mandaw.height - 30
+        if self.position.y <= -60:
+            self.position.y = -60
 
 class Ball(GameObject):
     def __init__(self, world, x, y):
@@ -51,11 +56,11 @@ class Ball(GameObject):
         self.attribute.ball_speed_y = 1 * random.choice((1, -1))
 
     def ball_movement(self):
-        self.position.x += 1 * self.attribute.ball_speed_x
-        self.position.y += 1 * self.attribute.ball_speed_y
+        self.position.x += 2 * self.attribute.ball_speed_x
+        self.position.y += 2 * self.attribute.ball_speed_y
 
         # Collisions
-        if self.position.y <= 10 or self.position.y >= mandaw.height - 10:
+        if self.position.y <= 2 or self.position.y >= mandaw.height - 20:
             self.attribute.ball_speed_y *= -1
         if self.position.x <= 0:
             self.reset()
