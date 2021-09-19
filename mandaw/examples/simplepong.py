@@ -7,9 +7,9 @@ BLACK = Color(0, 0, 0)
 WHITE = Color(255, 255, 255)
 
 class Paddle(GameObject):
-    def __init__(self, world, x, y):
+    def __init__(self, x, y):
         super().__init__(
-            world,
+            mandaw,
             width = 20,
             height = 100,
             x = x,
@@ -17,34 +17,34 @@ class Paddle(GameObject):
             color = WHITE
         )
 
-        self.attribute.ball = None
+        self.ball = None
 
     def player_movement(self):
         if mandaw.input.pressed[mandaw.input.keys["UP"]]:
-            self.position.y -= 2
+            self.y -= 2
         if mandaw.input.pressed[mandaw.input.keys["DOWN"]]:
-            self.position.y += 2
+            self.y += 2
 
-        if self.position.y >= mandaw.height - 30:
-            self.position.y = mandaw.height - 30
-        if self.position.y <= -60:
-            self.position.y = -60
+        if self.y >= mandaw.height - 30:
+            self.y = mandaw.height - 30
+        if self.y <= -60:
+            self.y = -60
 
     def opponent_movement(self):
-        if self.position.y < self.attribute.ball.position.y:
-            self.position.y += 2
-        if self.position.y > self.attribute.ball.position.y:
-            self.position.y -= 2
+        if self.y < self.ball.y:
+            self.y += 2
+        if self.y > self.ball.y:
+            self.y -= 2
 
-        if self.position.y >= mandaw.height - 30:
-            self.position.y = mandaw.height - 30
-        if self.position.y <= -60:
-            self.position.y = -60
+        if self.y >= mandaw.height - 30:
+            self.y = mandaw.height - 30
+        if self.y <= -60:
+            self.y = -60
 
 class Ball(GameObject):
-    def __init__(self, world, x, y):
+    def __init__(self, x, y):
         super().__init__(
-            world,
+            mandaw,
             width = 20,
             height = 20,
             x = x,
@@ -52,40 +52,40 @@ class Ball(GameObject):
             color = WHITE
         )
 
-        self.attribute.ball_speed_x = 1 * random.choice((1, -1))
-        self.attribute.ball_speed_y = 1 * random.choice((1, -1))
+        self.ball_speed_x = 1 * random.choice((1, -1))
+        self.ball_speed_y = 1 * random.choice((1, -1))
 
     def ball_movement(self):
-        self.position.x += 2 * self.attribute.ball_speed_x
-        self.position.y += 2 * self.attribute.ball_speed_y
+        self.x += 2 * self.ball_speed_x
+        self.y += 2 * self.ball_speed_y
 
         # Collisions
-        if self.position.y <= 2 or self.position.y >= mandaw.height - 20:
-            self.attribute.ball_speed_y *= -1
-        if self.position.x <= 0:
+        if self.y <= 2 or self.y >= mandaw.height - 20:
+            self.ball_speed_y *= -1
+        if self.x <= 0:
             self.reset()
-        elif self.position.x >= mandaw.width:
+        elif self.x >= mandaw.width:
             self.reset()
 
     def reset(self):
         self.center()
-        self.attribute.ball_speed_y *= random.choice((1, -1))
-        self.attribute.ball_speed_x *= random.choice((1, -1))
+        self.ball_speed_y *= random.choice((1, -1))
+        self.ball_speed_x *= random.choice((1, -1))
 
-player = Paddle(mandaw.world, x = 0, y = 250)
-player1 = Paddle(mandaw.world, x = 780, y = 250)
+player = Paddle(x = 0, y = 250)
+player1 = Paddle(x = 780, y = 250)
 
-ball = Ball(mandaw.world, x = 390, y = 290)
+ball = Ball(x = 390, y = 290)
 ball.center()
 
-player1.attribute.ball = ball
+player1.ball = ball
 
 while True:
     player.player_movement()
     player1.opponent_movement()
 
     if ball.collide(player) or ball.collide(player1):
-        ball.attribute.ball_speed_x *= -1
+        ball.ball_speed_x *= -1
 
     ball.ball_movement()
 
