@@ -70,7 +70,7 @@
     <h3 style="text-align: center; position: relative; top: 750px;">Declare the Square With GameObject</h3>
 
     <div class="code_block" style="top: 800px;">
-        square = <darkgreen>GameObject</darkgreen>(<gray>world</gray> = <lightblue>mandaw</lightblue>.world, <gray>width</gray> = <green>20</green>, <gray>height</gray> = <green>20</green>, <gray>x</gray> = <green>0</green>, <gray>y</gray> = <green>0</green>, <gray>color</gray> = <darkgreen>Color</darkgreen>(<green>255</green>, <green>155</green>, <green>0</green>))
+        square = <darkgreen>GameObject</darkgreen>(<gray>window</gray> = <lightblue>mandaw</lightblue>, <gray>width</gray> = <green>20</green>, <gray>height</gray> = <green>20</green>, <gray>x</gray> = <green>0</green>, <gray>y</gray> = <green>0</green>, <gray>color</gray> = <darkgreen>Color</darkgreen>(<green>255</green>, <green>155</green>, <green>0</green>))
     </div>
 
     <h3 style="text-align: center; position: relative; top: 850px;">Then to Center it, write</h3>
@@ -89,7 +89,7 @@
     <h3 style="text-align: center; position: relative; top: 1100px;">Make A Ground</h3>
 
     <div class="code_block" style="top: 1150px;">
-        ground = <darkgreen>GameObject</darkgreen>(<gray>world</gray> = <lightblue>mandaw</lightblue>.world, <gray>width</gray> = <green>5000</green>, <gray>height</gray> = <green>100</green>, <gray>x</gray> = <green>0</green>, <gray>y</gray> = <green>500</green>, <gray>color</gray> = <darkgreen>Color</darkgreen>(<green>200</green>, <green>200</green>, <green>200</green>))
+        ground = <darkgreen>GameObject</darkgreen>(<gray>window</gray> = <lightblue>mandaw</lightblue>, <gray>width</gray> = <green>5000</green>, <gray>height</gray> = <green>100</green>, <gray>x</gray> = <green>0</green>, <gray>y</gray> = <green>500</green>, <gray>color</gray> = <darkgreen>Color</darkgreen>(<green>200</green>, <green>200</green>, <green>200</green>))
     </div>
 
     <h3 style="text-align: center; position: relative; top: 1200px;">Center It's X</h3>
@@ -107,7 +107,7 @@
     <h3 style="text-align: center; position: relative; top: 1400px;">Here we can use the <yellow>collide</yellow>() function</h3>
 
     <div class="code_block" style="top: 1450px;">
-        <gray># Square's y position += 1 x deltaTime</gray> <br>
+        <gray># Square's y position += 1</gray> <br>
         <purple>if</purple> <blue>not</blue> square.<yellow>collide</yellow>(ground): <br> square.<gray>position</gray>.<gray>y</gray> += <green>1</green>
     </div>
 
