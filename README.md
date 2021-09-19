@@ -42,7 +42,7 @@ while True:
 ```
 To create a square, type
 ```py
-square = GameObject(mandaw.world, width = 20, height = 20, color = Color(255, 0, 0))
+square = GameObject(window = mandaw, width = 20, height = 20, color = Color(255, 0, 0))
 ```
 Then draw it
 ```py
@@ -56,7 +56,7 @@ from mandaw import *
 
 mandaw = Mandaw(title = "Mandaw", width = 800, height = 600)
 
-square = GameObject(mandaw.world, width = 20, height = 20, color = Color(255, 0, 0))
+square = GameObject(mandaw, width = 20, height = 20, color = Color(255, 0, 0))
 
 while True:
     square.draw()
@@ -73,15 +73,15 @@ mandaw = Mandaw("Classes!", 800, 600)
 while True:
     mandaw.run()
 ```
-To make a GameObject class in MandawEngineSDL, you have to include 'world' in the `__init__` function
+To make a GameObject class in MandawEngineSDL do:
 ```py
 class Cube(GameObject):
-    def __init__(self, world):
+    def __init__(self):
 ```
 Next, make the `super().__init__()`
 ```py
 super().__init__(
-    world = world,
+    window = mandaw,
     width = 20,
     height = 20,
     x = 0,
@@ -89,13 +89,13 @@ super().__init__(
     color = Color(0, 255, 255)
 )
 ```
-In the `__init__` funtion, you can also include
+In the `__init__` funtion, you can also include `self.center()` or any other variables
 ```py
 self.center()
 ```
 When you want to call the class, you do
 ```py
-cube = Cube(mandaw.world)
+cube = Cube()
 ```
 And don't forget to draw it
 ```py
@@ -109,9 +109,9 @@ from mandaw import *
 mandaw = Mandaw("Classes!", 800, 600)
 
 class Cube(GameObject):
-    def __init__(self, world):
+    def __init__(self):
         super().__init__(
-            world = world,
+            window = mandaw,
             width = 20,
             height = 20,
             x = 0,
@@ -121,7 +121,7 @@ class Cube(GameObject):
 
         self.center()
 
-cube = Cube(mandaw.world)
+cube = Cube()
 
 while True:
     cube.draw()
