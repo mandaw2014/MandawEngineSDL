@@ -1,5 +1,4 @@
-import sdl2
-import sdl2.ext
+import sdl2, sdl2.ext
 from mandaw.color import Color
 
 class GameObject(object):
@@ -22,21 +21,13 @@ class GameObject(object):
 
     def collide(self, rect):
         left, top, right, bottom = self.entity.sprite.area
+        bleft, btop, bright, bbottom = rect.entity.sprite.area
 
-        try:
-            if type(rect) != list:
-                bleft, btop, bright, bbottom = rect.entity.sprite.area
+        return(bleft < right and bright > left and btop < bottom and bbottom > top)
 
-                return(bleft < right and bright > left and btop < bottom and bbottom > top)
-            
-            elif type(rect) == list:
-                for i in range(len(rect)):
-                    bleft, btop, bright, bbottom = rect[i].entity.sprite.area
-
-                    return(bleft < right and bright > left and btop < bottom and bbottom > top)
-
-        except:
-            raise AttributeError("MandawError: Object was not a GameObject or a list of GameObjects :(")
+    def collidelist(self, rect):
+        collisions = [True if self.collide(rect[i]) else False for i in range(len(rect))]
+        return any(collisions)
 
     def center(self):
         self.x = int(self.window.width / 2) - int(self.width / 2)
