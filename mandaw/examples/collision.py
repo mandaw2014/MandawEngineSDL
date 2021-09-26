@@ -5,6 +5,8 @@ mandaw = Mandaw("Collisions!", 800, 600)
 player = GameObject(mandaw, 30, 30, 0, 0)
 player.center()
 
+objects = []
+
 class CollisionObject(GameObject):
     def __init__(self, x, y):
         super().__init__(
@@ -20,6 +22,13 @@ object2 = CollisionObject(200, 300)
 object3 = CollisionObject(400, 100)
 object4 = CollisionObject(400, 400)
 
+objects.append(object1)
+objects.append(object2)
+objects.append(object3)
+objects.append(object4)
+
+n = 1
+
 while True:
     if mandaw.input.pressed[mandaw.input.keys["UP"]]:
         player.y -= 1
@@ -33,22 +42,9 @@ while True:
     if mandaw.input.pressed[mandaw.input.keys["G"]]:
         player.center()
 
-    if player.collide(object1):
-        object1.color = Color(255, 0, 0)
-    else:
-        object1.color = Color(255, 255, 255)
-    if player.collide(object2):
-        object2.color = Color(255, 0, 0)
-    else:
-        object2.color = Color(255, 255, 255)
-    if player.collide(object3):
-        object3.color = Color(255, 0, 0)
-    else:
-        object3.color = Color(255, 255, 255)
-    if player.collide(object4):
-        object4.color = Color(255, 0, 0)
-    else:
-        object4.color = Color(255, 255, 255)
+    if player.collidelist(objects):
+        print("Hit! " + str(n))
+        n += 1
 
     object1.draw()
     object2.draw()
