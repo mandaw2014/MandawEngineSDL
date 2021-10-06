@@ -14,6 +14,10 @@ Type in CMD or Terminal:
 ```
 pip install https://github.com/mandaw2014/mandawenginesdl/archive/master.zip
 ```
+Or
+```py
+pip install git+https://github.com/mandaw2014/mandawenginesdl.git
+```
 
 # Creating A Window
 First, import mandaw
