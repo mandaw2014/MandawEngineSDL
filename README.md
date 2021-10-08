@@ -5,13 +5,11 @@ Discord: https://discord.gg/MPPqj9PNt3
 
 # Installation
 To install:
-Type in CMD or Terminal:
+Download the zip: Code->Download Zip
+Extract it
+Go into the extracted folder and Type in CMD or Terminal:
 ```
-pip install https://github.com/mandaw2014/mandawenginesdl/archive/master.zip
-```
-Or
-```py
-pip install git+https://github.com/mandaw2014/mandawenginesdl.git
+pip install setup.py
 ```
 
 # Creating A Window
