@@ -1,4 +1,4 @@
-import sdl2, mandaw.input
+import sdl2, mandaw.input, os, sys
 
 class Mandaw:
     def __init__(self, title = None, width = 800, height = 600, bg_color = (0, 0, 0, 255)):
@@ -48,6 +48,8 @@ class Mandaw:
                 if event.type == sdl2.SDL_KEYDOWN:
                     if event.key.keysym.sym == sdl2.SDLK_ESCAPE:
                         self.running = False
+                    if event.key.keysym.sym == sdl2.SDLK_F5:
+                        os.execl(sys.executable, sys.executable, *sys.argv)
 
             new = sdl2.SDL_GetPerformanceCounter()
             self._update((new - current) / freq)
