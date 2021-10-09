@@ -1,4 +1,4 @@
-import sdl2
+import sdl2, math
 
 class Entity(object):
     def __init__(self, window, width = 20, height = 20, x = 0, y = 0, color = (255, 255, 255, 255)):
@@ -58,3 +58,6 @@ class Entity(object):
 
     def center_y(self):
         self.y = self.window.height / 2 - self.height / 2
+
+def distance(rect1, rect2):
+    return (round(math.sqrt((rect2.x - rect1.x) ** 2 + (rect2.y - rect1.y) ** 2), 2)) / 10
