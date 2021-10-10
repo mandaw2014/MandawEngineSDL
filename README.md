@@ -64,3 +64,33 @@ def draw():
 
 mandaw.loop()
 ```
+# Basic Input In MandawEngine
+What we have so far
+```py
+from mandaw import *
+
+mandaw = Mandaw(title = "Input!", width = 800, height = 600, bg_color = (0, 0, 0, 255))
+
+square = Entity(window = mandaw, width = 100, height = 100)
+square.center()
+
+@mandaw.draw
+def draw():
+    square.draw()
+
+mandaw.loop()
+```
+To Move the square, we can use the built in `update` function along with `mandaw.input`
+```py
+@mandaw.update
+def update(dt):
+    if mandaw.input.pressed[mandaw.input.keys["W"]]:
+        square.y -= 100 * dt
+    if mandaw.input.pressed[mandaw.input.keys["A"]]:
+        square.x -= 100 * dt
+    if mandaw.input.pressed[mandaw.input.keys["S"]]:
+        square.y += 100 * dt
+    if mandaw.input.pressed[mandaw.input.keys["D"]]:
+        square.x += 100 * dt
+```
+`dt` here, represents deltaTime
