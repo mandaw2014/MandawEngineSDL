@@ -45,6 +45,8 @@ class Mandaw:
             while sdl2.SDL_PollEvent(event) != 0:
                 if event.type == sdl2.SDL_QUIT:
                     self.running = False
+                if event.type == sdl2.SDL_MOUSEMOTION:
+                    self.input.update(event)
                 if event.type == sdl2.SDL_KEYDOWN:
                     if event.key.keysym.sym == sdl2.SDLK_ESCAPE:
                         self.running = False
@@ -64,6 +66,9 @@ class Mandaw:
         sdl2.SDL_DestroyWindow(self.window)
         
         sdl2.SDL_Quit()
+
+    def quit(self):
+        self.running = False
 
     def draw(self, fn):
         self.draw_handlers.append(fn)
