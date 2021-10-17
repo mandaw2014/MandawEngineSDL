@@ -3,7 +3,8 @@ import sdl2
 class Input:
     def __init__(self):
         self.pressed = sdl2.SDL_GetKeyboardState(None)
-
+        self.mouse_pos = (0, 0)
+        
         self.keys = {
             "UP":sdl2.SDL_SCANCODE_UP, "DOWN":sdl2.SDL_SCANCODE_DOWN,
             "LEFT":sdl2.SDL_SCANCODE_LEFT, "RIGHT":sdl2.SDL_SCANCODE_RIGHT,
@@ -37,3 +38,9 @@ class Input:
             "DELETE":sdl2.SDL_SCANCODE_DELETE, "RETURN":sdl2.SDL_SCANCODE_RETURN,
             "SPACE":sdl2.SDL_SCANCODE_SPACE, "PLUS":sdl2.SDL_SCANCODE_KP_PLUS,
         }
+
+    def update(self, event):
+        self.mouse_pos = (event.motion.x, event.motion.y)
+
+    def getMousePos(self):
+        return self.mouse_pos
