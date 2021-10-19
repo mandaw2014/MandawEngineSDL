@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MandawEngine</title>
-    
-    <link rel="stylesheet" href="./css/style.css">
+    <title>Documentation</title>
+    <link rel="stylesheet" href="./css/docs.css">
     <link rel="stylesheet" href="./css/nav.css">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
@@ -31,97 +30,94 @@
         </nav>
     </header>
 
-    <h2 id="slogan">2D at its simplest.</h2>
-    <img src="./assets/bg.png" id="bg">
-
-    <br>
-    <h1 style="text-align: center;">Getting Started</h1>
-    <h2 id="install">Installation</h2>
-    <div class="code_block" style="top: 100px;">
-       <purple>pip</purple> install mandaw
-    </div>
-
-    <h2 style="text-align: center; position: relative; top: 200px;">Or To Install The Latest Version From Github</h2>
-
-    <div class="code_block" style="top: 280px;">
-        <purple>pip</purple> install <br> https://github.com/mandaw2014/ <br> mandawenginesdl/archive/master.zip
-    </div>
-
-    <h2 style="text-align: center; position: relative; top: 350px;">Making a Window</h2>
-    <h3 style="text-align: center; position: relative; top: 400px;">First, Import Mandaw</h3>
-
-    <div class="code_block" style="top: 450px;">
-        <purple>from</purple> mandaw <purple>import</purple> *
-    </div>
-
-    <h3 style="text-align: center; position: relative; top: 500px;">Then Call Mandaw</h3>
-
-    <div class="code_block" style="top: 550px;">
-        mandaw = <darkgreen>Mandaw</darkgreen>(<gray>title</gray> = <orange>"Mandaw"</orange>, <gray>width</gray> = <green>800</green>, <gray>height</gray> = <green>600</green>, <gray>bg_color</gray> = <darkgreen>Color</darkgreen>(<green>0</green>, <green>0</green>, <green>0</green>))
-    </div>
-
-    <h3 style="text-align: center; position: relative; top: 600px;">And then Run Mandaw with</h3>
-
-    <div class="code_block" style="top: 650px;">
-        <purple>while</purple> <blue>True</blue>: <lightblue>mandaw</lightblue>.<yellow>run</yellow>()
-    </div>
-
-    <h2 style="text-align: center; position: relative; top: 700px;">Making A Square</h2>
-    <h3 style="text-align: center; position: relative; top: 750px;">Declare the Square With GameObject</h3>
-
-    <div class="code_block" style="top: 800px;">
-        square = <darkgreen>GameObject</darkgreen>(<gray>window</gray> = <lightblue>mandaw</lightblue>, <gray>width</gray> = <green>20</green>, <gray>height</gray> = <green>20</green>, <gray>x</gray> = <green>0</green>, <gray>y</gray> = <green>0</green>, <gray>color</gray> = <darkgreen>Color</darkgreen>(<green>255</green>, <green>155</green>, <green>0</green>))
-    </div>
-
-    <h3 style="text-align: center; position: relative; top: 850px;">Then to Center it, write</h3>
-
-    <div class="code_block" style="top: 900px;">
-        square.<yellow>center</yellow>()
-    </div>
-
-    <h3 style="text-align: center; position: relative; top: 950px;">Then in the <purple>while</purple> <blue>True</blue>: loop, write</h3>
+    <h1 style="top: 100px;">Mandaw</h1>
     
-    <div class="code_block" style="top: 1000px;">
-        square.<yellow>draw</yellow>()
+    <div style="text-align: center; position: relative; top: 105px;">
+        <a href="https://github.com/mandaw2014/MandawEngineSDL/blob/master/mandaw/main.py"><gray>mandaw.main</gray></a>
     </div>
 
-    <h2 style="text-align: center; position: relative; top: 1050px;">Collisions Between GameObjects</h2>
-    <h3 style="text-align: center; position: relative; top: 1100px;">Make A Ground</h3>
+    <div class="docs" style="top: 150px;">
+        <gray>title</gray> = <orange>"Mandaw"</orange><br>
+        <gray>width</gray> = <green>800</green><br>
+        <gray>height</gray> = <green>600</green><br>
+        <gray>bg_color</gray> = (<green>0</green>, <green>0</green>, <green>0</green>, <green>255</green>)<br><br>
+        <gray>input</gray> = <darkgreen>mandaw</darkgreen>.<darkgreen>input</darkgreen>.<darkgreen>Input</darkgreen>() <br><br>
+        <gray>dt</gray> = <green>1.0</green> / <green>60.0</green> <br><br>
+        <yellow>loop</yellow>(<gray>self</gray>) <br><br><br><br>
 
-    <div class="code_block" style="top: 1150px;">
-        ground = <darkgreen>GameObject</darkgreen>(<gray>window</gray> = <lightblue>mandaw</lightblue>, <gray>width</gray> = <green>5000</green>, <gray>height</gray> = <green>100</green>, <gray>x</gray> = <green>0</green>, <gray>y</gray> = <green>500</green>, <gray>color</gray> = <darkgreen>Color</darkgreen>(<green>200</green>, <green>200</green>, <green>200</green>))
+        <div class="code_block">
+            <darkgreen>Mandaw</darkgreen>(<gray>title</gray>, <gray>width</gray>, <gray>height</gray>, <gray>bg_color</gray>) <br><br>
+        </div>
     </div>
 
-    <h3 style="text-align: center; position: relative; top: 1200px;">Center It's X</h3>
+    <h1 style="top: 350px;">Entity</h1>
 
-    <div class="code_block" style="top: 1250px;">
-        ground.<yellow>center_x</yellow>()  <br>
+    <div style="text-align: center; position: relative; top: 355px;">
+        <a href="https://github.com/mandaw2014/MandawEngineSDL/blob/master/mandaw/entity.py"><gray>mandaw.entity</gray></a>
     </div>
 
-    <h3 style="text-align: center; position: relative; top: 1300px;">Draw it in the <purple>while</purple> <blue>True</blue>: loop</h3>
+    <div class="docs" style="top: 400px;">
+        <gray>window</gray> = <gray>type</gray>: <darkgreen>Mandaw</darkgreen>.<lightblue>window</lightblue><br>
+        <gray>width</gray> = <green>20</green> <br>
+        <gray>height</gray> = <green>20</green><br>
+        <gray>x</gray> = <green>0</green><br>
+        <gray>y</gray> = <green>0</green><br>
+        <gray>color</gray> = (<green>255</green>, <green>255</green>, <green>255</green>, <green>255</green>)<br>
+        <gray>rect</gray> = <darkgreen>sdl2</darkgreen>.<darkgreen>SDL_FRect</darkgreen>(<gray>x</gray>, <gray>y</gray>, <gray>width</gray>, <gray>height</gray>) <br><br>
+        <yellow>draw</yellow>(<gray>self</gray>) <br>
+        <yellow>center</yellow>(<gray>self</gray>) <br>
+        <yellow>center_x</yellow>(<gray>self</gray>) <br>
+        <yellow>center_y</yellow>(<gray>self</gray>) <br><br>
 
-    <div class="code_block" style="top: 1350px;">
-        ground.<yellow>draw</yellow>()
+        <yellow>collide</yellow>(<gray>self</gray>, <gray>rect</gray> = <gray>type</gray>: <darkgreen>Entity</darkgreen>) <br>
+        <yellow>collidelist</yellow>(<gray>self</gray>, <gray>rect_list</gray> = <gray>type</gray>: <darkgreen>list</darkgreen>(<darkgreen>Entity</darkgreen>))<br>
+        <yellow>distance</yellow>(<gray>rect1</gray>, <gray>rect2</gray>) <br><br><br><br>
+
+        <div class="code_block">
+            <darkgreen>Entity</darkgreen>(<gray>window</gray>, <gray>width</gray>, <gray>height</gray>, <gray>x</gray>, <gray>y</gray>, <gray>color</gray>) <br><br>
+        </div>
     </div>
 
-    <h3 style="text-align: center; position: relative; top: 1400px;">Here we can use the <yellow>collide</yellow>() function</h3>
+    <h1 style="top: 600px;">Input</h1>
 
-    <div class="code_block" style="top: 1450px;">
-        <gray># Square's y position += 1</gray> <br>
-        <purple>if</purple> <blue>not</blue> square.<yellow>collide</yellow>(ground): <br> square.<gray>position</gray>.<gray>y</gray> += <green>1</green>
+    <div style="text-align: center; position: relative; top: 605px;">
+        <a href="https://github.com/mandaw2014/MandawEngineSDL/blob/master/mandaw/input.py"><gray>mandaw.input</gray></a>
     </div>
 
-    <div style="text-align: center; position: relative; top: 1500px;">
-        <a href="https://github.com/mandaw2014/MandawEngineSDL/blob/master/mandaw/examples/collision.py">Another Collision Example</a>
+    <div class="docs" style="top: 650px;">
+        <gray>pressed</gray> = <darkgreen>sdl2</darkgreen>.<orange>SDL_GetKeyboardState</orange>(<blue>None</blue>) <br><br>
+
+        <gray>keys</gray> = {} <br><br>
+        
+        <div class="code_block">
+            <darkgreen>Input</darkgreen>()
+        </div>
     </div>
 
-    <h2 style="text-align: center; position: relative; top: 1600px;">Input in Mandaw</h2>
+    <h1 style="top: 800px;">Sprite</h1>
 
-    <div class="code_block" style="top: 1650px; font-size: 14px;">
-        <purple>if</purple> mandaw.<gray>input</gray>.<lightblue>pressed</lightblue>[mandaw.<gray>input</gray>.<lightblue>keys</lightblue>[<orange>"A"</orange>]]: <br> <yellow>print</yellow>(<orange>"A was pressed!"</orange>) <br>
-        <purple>if</purple> mandaw.<gray>input</gray>.<lightblue>pressed</lightblue>[mandaw.<gray>input</gray>.<lightblue>keys</lightblue>[<orange>"D"</orange>]]: <br><yellow>print</yellow>(<orange>"D was pressed!"</orange>) <br><br>
+    <div style="text-align: center; position: relative; top: 805px;">
+        <a href="https://github.com/mandaw2014/MandawEngineSDL/blob/master/mandaw/sprite.py"><gray>mandaw.sprite</gray></a>
     </div>
 
-    <div style="position: relative; top: 1750px;">.</div>
+    <div class="docs" style="top: 850px;">
+        <gray>window</gray> = <darkgreen>type</darkgreen>: <darkgreen>Mandaw</darkgreen>.<lightblue>window</lightblue><br>
+        <gray>file</gray> = <blue>None</blue><br>
+        <gray>width</gray> = <green>200</green><br>
+        <gray>height</gray> = <green>200</green> <br>
+        <gray>x</gray> = <green>0</green><br>
+        <gray>y</gray> = <green>0</green><br><br>
+
+        <yellow>draw</yellow>(<gray>self</gray>) <br>
+        <yellow>center</yellow>(<gray>self</gray>) <br>
+        <yellow>center_x</yellow>(<gray>self</gray>) <br>
+        <yellow>center_y</yellow>(<gray>self</gray>) <br><br>
+
+        <yellow>collide</yellow>(<gray>self</gray>, <gray>rect</gray> = <gray>type</gray>: <darkgreen>Entity</darkgreen>) <br>
+        <yellow>collidelist</yellow>(<gray>self</gray>, <gray>rect_list</gray> = <gray>type</gray>: <darkgreen>list</darkgreen>(<darkgreen>Entity</darkgreen>))<br>
+        <yellow>distance</yellow>(<gray>rect1</gray>, <gray>rect2</gray>) <br><br><br><br>
+    </div>
+
+    <!-- <div style="position: relative; top: 850px;">.</div> -->
 </body>
 </html>
