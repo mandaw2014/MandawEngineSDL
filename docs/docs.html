@@ -40,42 +40,41 @@
         <gray>title</gray> = <orange>"Mandaw"</orange><br>
         <gray>width</gray> = <green>800</green><br>
         <gray>height</gray> = <green>600</green><br>
-        <gray>bg_color</gray> = <darkgreen>Color</darkgreen>(<green>0</green>, <green>0</green>, <green>0</green>)<br><br>
-        <gray>input</gray> = <darkgreen>Input</darkgreen>() <br><br>
-        <gray>window</gray> = <darkgreen>sdl2</darkgreen>.<darkgreen>ext</darkgreen>.<orange>Window</orange>(<gray>title</gray>, <gray>size</gray> = (<gray>width</gray>, <gray>height</gray>)) <br>
-        <gray>world</gray> = <darkgreen>sdl2</darkgreen>.<darkgreen>ext</darkgreen>.<orange>World</orange>() <br>
-        <gray>factory</gray> = <darkgreen>sdl2</darkgreen>.<darkgreen>ext</darkgreen>.<orange>SpriteFactory</orange>(<darkgreen>sdl2</darkgreen>.<darkgreen>ext</darkgreen>.<lightblue>SOFTWARE</lightblue>) <br><br>
-        <gray>color</gray> = {} <br><br>
-        <yellow>run</yellow>(<gray>self</gray>) <br><br><br><br>
+        <gray>bg_color</gray> = (<green>0</green>, <green>0</green>, <green>0</green>, <green>255</green>)<br><br>
+        <gray>input</gray> = <darkgreen>mandaw</darkgreen>.<darkgreen>input</darkgreen>.<darkgreen>Input</darkgreen>() <br><br>
+        <gray>dt</gray> = <green>1.0</green> / <green>60.0</green> <br><br>
+        <yellow>loop</yellow>(<gray>self</gray>) <br><br><br><br>
 
         <div class="code_block">
             <darkgreen>Mandaw</darkgreen>(<gray>title</gray>, <gray>width</gray>, <gray>height</gray>, <gray>bg_color</gray>) <br><br>
         </div>
     </div>
 
-    <h1 style="top: 350px;">GameObject</h1>
+    <h1 style="top: 350px;">Entity</h1>
 
     <div style="text-align: center; position: relative; top: 355px;">
-        <a href="https://github.com/mandaw2014/MandawEngineSDL/blob/master/mandaw/gameobject.py"><gray>mandaw.gameobject</gray></a>
+        <a href="https://github.com/mandaw2014/MandawEngineSDL/blob/master/mandaw/entity.py"><gray>mandaw.entity</gray></a>
     </div>
 
     <div class="docs" style="top: 400px;">
-        <gray>entity</gray> = <darkgreen>sdl2</darkgreen>.<darkgreen>ext</darkgreen>.<orange>Entity</orange>(<gray>world</gray> = <lightblue>window</lightblue>.world) <br>
-        <gray>window</gray> = <gray>type</gray>: <darkgreen>Mandaw</darkgreen><br>
+        <gray>window</gray> = <gray>type</gray>: <darkgreen>Mandaw</darkgreen>.<lightblue>window</lightblue><br>
         <gray>width</gray> = <green>20</green> <br>
         <gray>height</gray> = <green>20</green><br>
         <gray>x</gray> = <green>0</green><br>
         <gray>y</gray> = <green>0</green><br>
-        <gray>color</gray> = <darkgreen>Color</darkgreen>(<green>0</green>, <green>0</green>, <green>0</green>)<br><br>
+        <gray>color</gray> = (<green>255</green>, <green>255</green>, <green>255</green>, <green>255</green>)<br>
+        <gray>rect</gray> = <darkgreen>sdl2</darkgreen>.<darkgreen>SDL_FRect</darkgreen>(<gray>x</gray>, <gray>y</gray>, <gray>width</gray>, <gray>height</gray>) <br><br>
         <yellow>draw</yellow>(<gray>self</gray>) <br>
         <yellow>center</yellow>(<gray>self</gray>) <br>
         <yellow>center_x</yellow>(<gray>self</gray>) <br>
         <yellow>center_y</yellow>(<gray>self</gray>) <br><br>
 
-        <yellow>collide</yellow>(<gray>self</gray>, <gray>rect</gray> = <gray>type</gray>: <darkgreen>GameObject</darkgreen>) <br><br><br><br>
+        <yellow>collide</yellow>(<gray>self</gray>, <gray>rect</gray> = <gray>type</gray>: <darkgreen>Entity</darkgreen>) <br>
+        <yellow>collidelist</yellow>(<gray>self</gray>, <gray>rect_list</gray> = <gray>type</gray>: <darkgreen>list</darkgreen>(<darkgreen>Entity</darkgreen>))<br>
+        <yellow>distance</yellow>(<gray>rect1</gray>, <gray>rect2</gray>) <br><br><br><br>
 
         <div class="code_block">
-            <darkgreen>GameObject</darkgreen>(<gray>world</gray>, <gray>width</gray>, <gray>height</gray>, <gray>x</gray>, <gray>y</gray>, <gray>color</gray>) <br><br>
+            <darkgreen>Entity</darkgreen>(<gray>window</gray>, <gray>width</gray>, <gray>height</gray>, <gray>x</gray>, <gray>y</gray>, <gray>color</gray>) <br><br>
         </div>
     </div>
 
@@ -85,9 +84,7 @@
         <a href="https://github.com/mandaw2014/MandawEngineSDL/blob/master/mandaw/input.py"><gray>mandaw.input</gray></a>
     </div>
 
-    <h2 style="text-align: center; position: relative; top: 650px;">Input</h2>
-
-    <div class="docs" style="top: 700px;">
+    <div class="docs" style="top: 650px;">
         <gray>pressed</gray> = <darkgreen>sdl2</darkgreen>.<orange>SDL_GetKeyboardState</orange>(<blue>None</blue>) <br><br>
 
         <gray>keys</gray> = {} <br><br>
@@ -97,18 +94,30 @@
         </div>
     </div>
 
-    <h1 style="top: 1000px;">Color</h1>
+    <h1 style="top: 800px;">Sprite</h1>
 
-    <div style="text-align: center; position: relative; top: 1005px;">
-        <a href="https://github.com/mandaw2014/MandawEngineSDL/blob/master/mandaw/color.py"><gray>mandaw.color</gray></a>
+    <div style="text-align: center; position: relative; top: 805px;">
+        <a href="https://github.com/mandaw2014/MandawEngineSDL/blob/master/mandaw/sprite.py"><gray>mandaw.sprite</gray></a>
     </div>
 
-    <div class="docs" style="top: 1050px;">
-        <darkgreen>sdl2</darkgreen>.<darkgreen>ext</darkgreen>.<orange>Color</orange>()<br><br><br><br>
+    <div class="docs" style="top: 850px;">
+        <gray>window</gray> = <darkgreen>type</darkgreen>: <darkgreen>Mandaw</darkgreen>.<lightblue>window</lightblue><br>
+        <gray>file</gray> = <blue>None</blue><br>
+        <gray>width</gray> = <green>200</green><br>
+        <gray>height</gray> = <green>200</green> <br>
+        <gray>x</gray> = <green>0</green><br>
+        <gray>y</gray> = <green>0</green><br><br>
 
-        <div class="code_block">
-            <darkgreen>Color</darkgreen>(<gray>r</gray>, <gray>g</gray>, <gray>b</gray>) <br><br><br><br><br><br><br>
-        </div>
+        <yellow>draw</yellow>(<gray>self</gray>) <br>
+        <yellow>center</yellow>(<gray>self</gray>) <br>
+        <yellow>center_x</yellow>(<gray>self</gray>) <br>
+        <yellow>center_y</yellow>(<gray>self</gray>) <br><br>
+
+        <yellow>collide</yellow>(<gray>self</gray>, <gray>rect</gray> = <gray>type</gray>: <darkgreen>Entity</darkgreen>) <br>
+        <yellow>collidelist</yellow>(<gray>self</gray>, <gray>rect_list</gray> = <gray>type</gray>: <darkgreen>list</darkgreen>(<darkgreen>Entity</darkgreen>))<br>
+        <yellow>distance</yellow>(<gray>rect1</gray>, <gray>rect2</gray>) <br><br><br><br>
     </div>
+
+    <!-- <div style="position: relative; top: 850px;">.</div> -->
 </body>
 </html>
