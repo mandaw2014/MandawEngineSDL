@@ -18,7 +18,7 @@ class Platform(Entity):
             height = 10,
             x = x,
             y = y,
-            color = color["green"]
+            color = color["green"] 
         )
 
 class JumpPlatform(Entity):
@@ -124,7 +124,9 @@ def update(dt):
     player.movement(dt)
 
     if player.collide(platform7) or player.collide(platform10):
-        player.jump_y = -20
+        player.maxjump = 1500
+    elif player.collidelist(player.objects):
+        player.maxjump = 800
 
     if player.collide(platform12) or player.collide(platform13) or player.collide(platform14):
         player.maxspeed = 260
