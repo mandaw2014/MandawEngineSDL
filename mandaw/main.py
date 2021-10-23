@@ -1,11 +1,11 @@
-import sdl2, mandaw.input, os, sys
+import sdl2, sdl2.sdlimage, mandaw.input, os, sys
 
 class Mandaw:
     def __init__(self, title = None, width = 800, height = 600, bg_color = (0, 0, 0, 255)):
         self.title = title.encode() if title else b"Mandaw"
         self.width = width
         self.height = height
-        self.bg_color = bg_color
+        self.bg_color = bg_color 
 
         sdl2.SDL_Init(sdl2.SDL_INIT_EVERYTHING)
 
@@ -13,6 +13,11 @@ class Mandaw:
         self.renderer = sdl2.SDL_CreateRenderer(self.window, -1, 0)
 
         self.running = True
+
+        self.icon = "./mandaw/assets/mandaw.png"
+        image = sdl2.sdlimage.IMG_Load(self.icon.encode())
+        sdl2.SDL_SetWindowIcon(self.window, image)
+        sdl2.SDL_FreeSurface(image)
 
         self.dt = 1.0 / 60
 
@@ -52,6 +57,8 @@ class Mandaw:
                         self.running = False
                     if event.key.keysym.sym == sdl2.SDLK_F5:
                         os.execl(sys.executable, sys.executable, *sys.argv)
+            
+            self.input.event = event
 
             new = sdl2.SDL_GetPerformanceCounter()
             self._update((new - current) / freq)
@@ -77,3 +84,8 @@ class Mandaw:
     def update(self, fn):
         self.update_handlers.append(fn)
         return fn
+
+    def set_icon(self, file):
+        image = sdl2.sdlimage.IMG_Load(file.encode())
+        sdl2.SDL_SetWindowIcon(self.window, image)
+        sdl2.SDL_FreeSurface(image)
