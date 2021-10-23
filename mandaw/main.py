@@ -57,8 +57,6 @@ class Mandaw:
                         self.running = False
                     if event.key.keysym.sym == sdl2.SDLK_F5:
                         os.execl(sys.executable, sys.executable, *sys.argv)
-            
-            self.input.event = event
 
             new = sdl2.SDL_GetPerformanceCounter()
             self._update((new - current) / freq)
