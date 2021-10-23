@@ -30,12 +30,14 @@ class PlatformerController2D(Entity):
 
         self.direction = None
 
+        self.maxjump = 800
+
         self.velocity_y = 1
 
         self.objects = []
 
         # Player's speed and maxspeed
-        self.speed = 80
+        self.speed = 50
         self.maxspeed = 160
 
         self.ignore_speed = []
@@ -60,7 +62,7 @@ class PlatformerController2D(Entity):
 
         # Gravity
         if not self.collidelist(self.objects) and self.is_jumping == False:
-            self.y += 3 * int(self.velocity_y)
+            self.y += 4 * self.velocity_y
             self.velocity_y += 0.1 * dt
 
         if self.collidelist(self.objects):
@@ -105,9 +107,9 @@ class PlatformerController2D(Entity):
 
         if self.is_jumping == True:
             self.y -= self.jump_y * dt
-            self.jump_y += 200
+            self.jump_y += 100
 
-            if self.jump_y > 1000:
+            if self.jump_y > self.maxjump:
                 self.is_jumping = False
                 self.jump_y = 0
 
@@ -123,8 +125,8 @@ if __name__ == "__main__":
 
     @mandaw.draw
     def draw():
-        ground.draw()
         player.draw()
+        ground.draw()
     
     @mandaw.update
     def update(dt):
