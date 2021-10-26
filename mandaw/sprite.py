@@ -1,5 +1,5 @@
 from sdl2 import sdlimage
-import sdl2, ctypes, math
+import sdl2, ctypes
 
 class Sprite(object):
     def __init__(self, window, file, width = 200, height = 200, x = 0, y = 0):
@@ -90,6 +90,15 @@ class Sprite(object):
                     self.rect = sdl2.SDL_FRect(self.x, self.y, self.width * 2, self.height * 2)
 
                 self.draw()
+
+    def mirror_x(self):
+        self.mirror = "x"
+    
+    def mirror_y(self):
+        self.mirror = "y"
+
+    def mirror_default(self):
+        self.mirror = None
 
 if __name__ == "__main__":
     from mandaw import *
