@@ -26,11 +26,9 @@ class PlatformerController2D(Entity):
         self.pos = self.window.width / 2 - 15
 
         self.is_jumping = False
-        self.jump_y = 5
+        self.jump_y = 500
 
         self.direction = None
-
-        self.maxjump = 800
 
         self.velocity_y = 1
 
@@ -63,7 +61,7 @@ class PlatformerController2D(Entity):
         # Gravity
         if not self.collidelist(self.objects) and self.is_jumping == False:
             self.y += 4 * self.velocity_y
-            self.velocity_y += 0.1 * dt
+            self.velocity_y += 2 * dt
 
         if self.collidelist(self.objects):
             self.velocity_y = 1
@@ -107,11 +105,11 @@ class PlatformerController2D(Entity):
 
         if self.is_jumping == True:
             self.y -= self.jump_y * dt
-            self.jump_y += 100
+            self.jump_y -= 50
 
-            if self.jump_y > self.maxjump:
+            if self.jump_y < -250:
                 self.is_jumping = False
-                self.jump_y = 0
+                self.jump_y = 500
 
 if __name__ == "__main__":
     mandaw = Mandaw("PlatformerController2D!", 800, 600, (0, 255, 255, 255))
