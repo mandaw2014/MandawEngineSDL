@@ -124,9 +124,9 @@ def update(dt):
     player.movement(dt)
 
     if player.collide(platform7) or player.collide(platform10):
-        player.maxjump = 1500
+        player.jump_y = 1000
     elif player.collidelist(player.objects):
-        player.maxjump = 800
+        player.jump_y = 500
 
     if player.collide(platform12) or player.collide(platform13) or player.collide(platform14):
         player.maxspeed = 260
