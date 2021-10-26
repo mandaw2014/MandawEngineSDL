@@ -20,12 +20,12 @@ def update(dt):
     if mandaw.input.pressed[mandaw.input.keys["D"]]:
         character.play_animation("run")
         character.x += 60 * 5 * dt
-        character.mirror = None
+        character.mirror_default()
 
     elif mandaw.input.pressed[mandaw.input.keys["A"]]:
         character.play_animation("run")
         character.x -= 60 * 5 * dt
-        character.mirror = "x"
+        character.mirror_x()
 
     else:
         character.play_animation("idle")
