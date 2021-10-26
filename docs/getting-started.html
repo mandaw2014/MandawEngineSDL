@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started</title>
+
+    <link rel="stylesheet" href="./css/nav.css">
+    <link rel="stylesheet" href="./css/docs.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <input type="checkbox" id="check" />
+            <label for="check" class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <a href="index.html" class="logo">MandawEngine</a>
+            <ul class="navlinks">
+                <li><a href="./functions.html">Functions</a></li>
+                <li><a href="./building.html">Building</a></li>
+                <li><a href="./getting-started.html">Getting Started</a></li>
+                <li><a href="./docs.html">Documentation</a></li>
+                <li><a href="https://github.com/mandaw2014/MandawEngineSDL/tree/master/mandaw/examples" class="contact">Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1 style="text-align: center; top: 100px;">Getting Started</h1>
+    <h2 style="text-align: center; position: relative; top: 150px;">Installation</h2>
+    <div class="code_block" style="top: 200px;">
+       <purple>pip</purple> install mandaw
+    </div>
+
+    <h2 style="text-align: center; position: relative; top: 300px;">Or To Install The Latest Version From Github</h2>
+
+    <div class="code_block" style="top: 380px;">
+        <purple>pip</purple> install <br> https://github.com/mandaw2014/ <br> mandawenginesdl/archive/master.zip
+    </div>
+
+    <h2 style="text-align: center; position: relative; top: 450px;">Making a Window</h2>
+    <h3 style="text-align: center; position: relative; top: 500px;">First, Import Mandaw</h3>
+
+    <div class="code_block" style="top: 550px;">
+        <purple>from</purple> mandaw <purple>import</purple> *
+    </div>
+
+    <h3 style="text-align: center; position: relative; top: 600px;">Then Call Mandaw</h3>
+
+    <div class="code_block" style="top: 650px;">
+        mandaw = <darkgreen>Mandaw</darkgreen>(<gray>title</gray> = <orange>"Mandaw"</orange>, <gray>width</gray> = <green>800</green>, <gray>height</gray> = <green>600</green>, <gray>bg_color</gray> = (<green>0</green>, <green>0</green>, <green>0</green>, <green>255</green>))
+    </div>
+
+    <h3 style="text-align: center; position: relative; top: 700px;">And then Run Mandaw with</h3>
+
+    <div class="code_block" style="top: 750px;">
+        mandaw.<yellow>loop</yellow>()
+    </div>
+
+    <h2 style="text-align: center; position: relative; top: 800px;">Making A Square</h2>
+    <h3 style="text-align: center; position: relative; top: 850px;">Declare the Square With Entity</h3>
+
+    <div class="code_block" style="top: 900px;">
+        square = <darkgreen>Entity</darkgreen>(<gray>window</gray> = <lightblue>mandaw</lightblue>, <gray>width</gray> = <green>20</green>, <gray>height</gray> = <green>20</green>, <gray>x</gray> = <green>0</green>, <gray>y</gray> = <green>0</green>, <gray>color</gray> = <lightgray>color</lightgray>[<orange>"white"</orange>])
+    </div>
+
+    <h3 style="text-align: center; position: relative; top: 950px;">Then to Center it, write</h3>
+
+    <div class="code_block" style="top: 1000px;">
+        square.<yellow>center</yellow>()
+    </div>
+
+    <h3 style="text-align: center; position: relative; top: 1050px;">Then to draw it, write</h3>
+    
+    <div class="code_block" style="top: 1100px;">
+        <div style="position: relative; left: -15px;"><lightblue>@mandaw</lightblue>.<yellow>draw</yellow></div>
+        <div style="position: relative; left: -20px;"><blue>def</blue> <yellow>draw</yellow>(): </div>
+        <div style="position: relative; left: 15px;">square.<yellow>draw</yellow>() <br></div>
+    </div>
+
+    <h2 style="text-align: center; position: relative; top: 1150px;">Collisions Between GameObjects</h2>
+    <h3 style="text-align: center; position: relative; top: 1200px;">Make A Ground</h3>
+
+    <div class="code_block" style="top: 1250px;">
+        ground = <darkgreen>Entity</darkgreen>(<gray>window</gray> = <lightblue>mandaw</lightblue>, <gray>width</gray> = <green>5000</green>, <gray>height</gray> = <green>100</green>, <gray>x</gray> = <green>0</green>, <gray>y</gray> = <green>500</green>, <gray>color</gray> = (<green>200</green>, <green>200</green>, <green>200</green>, <green>255</green>))
+    </div>
+
+    <h3 style="text-align: center; position: relative; top: 1300px;">Center It's X</h3>
+
+    <div class="code_block" style="top: 1350px;">
+        ground.<yellow>center_x</yellow>()  <br>
+    </div>
+
+    <h3 style="text-align: center; position: relative; top: 1400px;">Draw it in the <lightblue>@mandaw</lightblue>.<yellow>draw</yellow> function</h3>
+
+    <div class="code_block" style="top: 1450px;">
+        <div style="position: relative; left: -15px;"><lightblue>@mandaw</lightblue>.<yellow>draw</yellow></div>
+        <div style="position: relative; left: -20px;"><blue>def</blue> <yellow>draw</yellow>(): </div>
+        <div style="position: relative; left: 17px;">ground.<yellow>draw</yellow>() <br></div>
+    </div>
+
+    <h3 style="text-align: center; position: relative; top: 1500px;">Here we can use the <yellow>collide</yellow>() function</h3>
+
+    <div class="code_block" style="top: 1550px;">
+        <div style="position: relative; left: -18px;"><gray># Square's y position += 1</gray></div>
+        <purple>if</purple> <blue>not</blue> square.<yellow>collide</yellow>(ground): <br> square.<lightblue>position</lightblue>.<gray>y</gray> += <green>1</green>
+    </div>
+
+    <div style="text-align: center; position: relative; top: 1600px;">
+        <a href="https://github.com/mandaw2014/MandawEngineSDL/blob/master/mandaw/examples/collision.py">Another Collision Example</a>
+    </div>
+
+    <h2 style="text-align: center; position: relative; top: 1700px;">Input in Mandaw</h2>
+    <h3 style="text-align: center; position: relative; top: 1720px;">Input only works in the <yellow>update</yellow>() function</h3>
+
+    <div class="code_block" style="top: 1750px; font-size: 14px;">
+        <purple>if</purple> mandaw.<gray>input</gray>.<lightblue>pressed</lightblue>[mandaw.<gray>input</gray>.<lightblue>keys</lightblue>[<orange>"A"</orange>]]: <br> <yellow>print</yellow>(<orange>"A was pressed!"</orange>) <br>
+        <purple>if</purple> mandaw.<gray>input</gray>.<lightblue>pressed</lightblue>[mandaw.<gray>input</gray>.<lightblue>keys</lightblue>[<orange>"D"</orange>]]: <br><yellow>print</yellow>(<orange>"D was pressed!"</orange>) <br><br>
+    </div>
+
+    <div style="position: relative; top: 1850px;">.</div>
+</body>
+</html>

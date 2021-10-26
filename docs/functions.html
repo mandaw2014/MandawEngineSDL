@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions In MandawEngine</title>
+
+    <link rel="stylesheet" href="./css/nav.css">
+    <link rel="stylesheet" href="./css/docs.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <input type="checkbox" id="check" />
+            <label for="check" class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <a href="index.html" class="logo">MandawEngine</a>
+            <ul class="navlinks">
+                <li><a href="./functions.html">Functions</a></li>
+                <li><a href="./building.html">Building</a></li>
+                <li><a href="./getting-started.html">Getting Started</a></li>
+                <li><a href="./docs.html">Documentation</a></li>
+                <li><a href="https://github.com/mandaw2014/MandawEngineSDL/tree/master/mandaw/examples" class="contact">Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1 style="top: 100px;">Built-In Functions</h1>
+
+    <h2 style="text-align: center; position: relative; top: 150px;">The <yellow>update</yellow>(<gray>dt</gray>) function</h2>
+    <h3 style="text-align: center; position: relative; top: 170px;">The <yellow>update</yellow>(<gray>dt</gray>) function is called every frame <br>
+        <gray>dt</gray> stands for delta time. <br><br>
+        <gray>"delta time is the amount of seconds it took for the <br>
+            engine to process the previous frame. <br> 
+            It's calculation is rather simple: it uses the <br>
+            system's internal clock to compare the system time <br>
+            when the engine started processing the previous <br>
+            frame to the system time when the engine started <br>
+            processing the current frame. Every motherboard <br>
+            has a "system clock" which is responsible to keep <br>
+            track of time. Operating systems have access to that <br>
+            system clock and provide API's to read that clock."</gray> <br><br><br>
+
+            An example of the <yellow>update</yellow>(<gray>dt</gray>) function:
+    </h3>
+
+    <div class="code_block" style="top: 200px;">
+        <div style="position: relative; left: -5px;"><lightblue>@mandaw</lightblue>.<yellow>update</yellow></div>
+        <div style="position: relative; left: 0px;"><blue>def</blue> <yellow>update</yellow>(<gray>dt</gray>):</div>
+        <div style="position: relative; left: 0px;"><yellow>print</yellow>(<gray>dt</gray>)</div>
+    </div> <br><br><br> 
+
+    <h3 style="text-align: center; position: relative; top: 230px;">
+        If you run this code, the program <br>
+        will print out a very small number. <br>
+        This number is the elapsed second <br>
+        since the last update
+    </h3>
+
+    <h2 style="text-align: center; position: relative; top: 300px;">The <yellow>draw</yellow>() function</h2>
+    <h3 style="text-align: center; position: relative; top: 320px;">
+        The <yellow>draw</yellow>() function is a built in function <br> 
+        for drawing <darkgreen>Entities</darkgreen>, <darkgreen>Sprites</darkgreen> and <darkgreen>Text</darkgreen> Objects <br><br><br>
+        An example of the <yellow>draw</yellow>() function:
+    </h3>
+
+    <h3 class="code_block" style="top: 350px;">
+        <div><lightblue>@mandaw</lightblue>.<yellow>draw</yellow></div>
+        <div style="position: relative; left: -3px;"><blue>def</blue> <yellow>draw</yellow>():</div>
+        <div style="position: relative; left: 15px;"><gray>entity</gray>.<yellow>draw</yellow>()</div>
+    </h3>
+
+    <div style="position: relative; top: 400px;">.</div>
+</body>
+</html>
