@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prefabs</title>
+
+    <link rel="stylesheet" href="./css/nav.css">
+    <link rel="stylesheet" href="./css/docs.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <input type="checkbox" id="check" />
+            <label for="check" class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <a href="index.html" class="logo">MandawEngine</a>
+            <ul class="navlinks">
+                <li><a href="./prefabs.html">Prefabs</a></li>
+                <li><a href="./functions.html">Functions</a></li>
+                <li><a href="./building.html">Building</a></li>
+                <li><a href="./getting-started.html">Getting Started</a></li>
+                <li><a href="./docs.html">Documentation</a></li>
+                <li><a href="https://github.com/mandaw2014/MandawEngineSDL/tree/master/mandaw/examples" class="contact">Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1 style="top: 100px;">Prefabs</h1>
+    <h2 style="top: 150px; text-align: center; position: relative;">Using The <a href="https://github.com/mandaw2014/MandawEngineSDL/blob/master/mandaw/prefabs/platformer_controller.py">PlatformerController2D</a> Prefab</h2>
+    <div style="text-align: center; position: relative; top: 200px;">
+        <h3>First, import it</h3> <br>
+        <div class="code_block">
+            <purple>from</purple> mandaw.prefabs.platformer_controller <purple>import</purple> PlatformerController2D
+        </div> <br>
+        <h3>Then call it</h3> <br>
+        <div class="code_block">
+            player = <darkgreen>PlatformerController2D</darkgreen>(<gray>window</gray> = mandaw, <gray>x</gray> = <green>0</green>, <gray>y</gray> = <green>0</green>, <gray>centered</gray> = <blue>True</blue>)
+        </div> <br>
+        <h3>And then in the <yellow>draw</yellow>() function, type</h3> <br>
+        <div class="code_block">
+            <div style="left: -20px; position: relative;"><lightblue>@mandaw</lightblue>.<yellow>draw</yellow></div>
+            <div style="left: -20px; position: relative;"><blue>def</blue> <yellow>draw</yellow>():</div> 
+            <gray>player</gray>.<yellow>draw</yellow>()
+        </div> <br>
+        <h3>In the <yellow>update</yellow>(<gray>dt</gray>) function, type</h3> <br>
+        <div class="code_block">
+            <div style="left: -20px; position: relative;"><lightblue>@mandaw</lightblue>.<yellow>update</yellow></div>
+            <div style="left: -20px; position: relative;"><blue>def</blue> <yellow>update</yellow>(<gray>dt</gray>):</div> 
+            <div style="left: 650px; position: absolute;"><gray>player</gray>.<yellow>movement</yellow>(<gray>dt</gray>)</div>
+        </div> <br><br>
+        <h3>Collisions with other Entities</h3> <br>
+        <div class="code_block">
+            ground = <darkgreen>Entity</darkgreen>(<gray>mandaw</gray>, <gray>width</gray> = <green>5000</green>, <gray>height</gray> = <green>100</green>, <gray>x</gray> = <green>0</green>, <gray>y</gray> = <green>500</green>, <gray>color</gray> = <lightblue>color</lightblue>[<orange>"lightgray"</orange>])
+        </div> <br>
+        <h3>Center it's x</h3> <br>
+        <div class="code_block">
+            ground.<yellow>center_x</yellow>()
+        </div> <br>
+        <h3>Append it to <gray>player</gray>.<lightblue>objects</lightblue></h3><br>
+        <div class="code_block">
+            <gray>player</gray>.<lightblue>objects</lightblue>.<yellow>append</yellow>(<gray>ground</gray>)
+        </div> <br><br>
+        <h3>Draw it</h3> <br>
+        <div class="code_block">
+            <lightblue>@mandaw</lightblue>.<yellow>draw</yellow> <br>
+            <blue>def</blue> <yellow>draw</yellow>(): <br>
+            <div style="position: absolute; left: 690px;"><gray>ground</gray>.<yellow>draw</yellow>()</div> 
+        </div> <br><br>
+        <h3>You should now be able to move and jump around :)</h3> <br>
+        <h3>An <a href="https://github.com/mandaw2014/MandawEngineSDL/blob/master/mandaw/examples/platformer.py">example</a> of the PlatformerController2D in use</h3> <br>
+        <h3>A modified <a href="https://github.com/mandaw2014/MandawEngineSDL/blob/master/mandaw/prefabs/controller_2D.py">version</a> of PlatformerController2D that is infinite</h3> <br><br><br><br>
+    </div>
+</body>
+</html>
