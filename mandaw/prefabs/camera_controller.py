@@ -55,6 +55,16 @@ class PlatformerController2D(Entity):
         for i in range(len(self.objects)):
             self.objects[i].x -= self.pos_x * dt
 
+        if self.y <= 250:
+            self.y += 100 * dt
+            for i in range(len(self.objects)):
+                self.objects[i].y += 100 * dt
+        
+        if self.y >= 400:
+            self.y -= 100 * dt
+            for i in range(len(self.objects)):
+                self.objects[i].y -= 100 * dt
+
         # Gravity
         if not self.collidelist(self.objects) and self.is_jumping == False:
             self.y += 4 * self.velocity_y
@@ -77,13 +87,13 @@ class PlatformerController2D(Entity):
 
         if not self.collidelist(self.objects):
             if self.direction == 0 and not self.window.input.pressed[self.window.input.keys["A"]]:
-                self.pos_x += 1
+                self.pos_x += 0.1
 
                 if self.pos_x >= 0:
                     self.pos_x = 0
             
             if self.direction == 1 and not self.window.input.pressed[self.window.input.keys["D"]]:
-                self.pos_x -= 1
+                self.pos_x -= 0.1
 
                 if self.pos_x <= 0:
                     self.pos_x = 0
@@ -110,7 +120,7 @@ if __name__ == "__main__":
 
     player = PlatformerController2D(mandaw, x = 0, y = 0, centered = True)
 
-    ground = Entity(mandaw, width = 5000, height = 100, x = 0, y = 500, color = color["lightgray"])
+    ground = Entity(mandaw, width = 5000, height = 1000, x = 0, y = 500, color = color["lightgray"])
     ground.center_x()
 
     player.objects.append(ground)
